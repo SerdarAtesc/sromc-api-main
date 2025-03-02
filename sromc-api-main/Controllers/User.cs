@@ -38,7 +38,7 @@ namespace SROMCapi.Controllers
         /// <param name="JSON"></param>
         /// <returns></returns>
         [HttpPost]
-        public UserInfo Login([FromBody] Models.UserInfo JSON)gi
+        public UserInfo Login([FromBody] Models.UserInfo JSON)
         {
             string Username = JSON.Username;
             string Password = JSON.Password;
