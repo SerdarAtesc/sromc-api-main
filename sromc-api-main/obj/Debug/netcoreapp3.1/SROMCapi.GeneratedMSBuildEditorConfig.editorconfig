@@ -1,0 +1,8 @@
+is_global = true
+build_property.RootNamespace = SROMCapi
+build_property.ProjectDir = C:\Users\Serdar\Downloads\sromc-api-main\sromc-api-main\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.CsWinRTUseWindowsUIXamlProjections = false
+build_property.EffectiveAnalysisLevelStyle = 
+build_property.EnableCodeStyleSeverity = 
