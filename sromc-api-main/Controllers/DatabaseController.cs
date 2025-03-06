@@ -1010,17 +1010,17 @@ namespace SROMCapi.Controllers
                 da.Fill(dataTable);
                 Connection.Close();
 
-                foreach (DataRow Row in dataTable.Rows)
-                {
-                    ServerList.Add(new Models.Server
-                    {
-                        Game = Row["Game"].ToString(),
-                        ServerName = Row["Server"].ToString(),
-                        ServerCapacity = Convert.ToInt32(Row["ServerCapacity"].ToString()),
-                        ServerStatus = Boolean.Parse(Row["ServerStatus"].ToString()),
-                        LastUpdate = DateTime.Parse(Row["LastUpdate"].ToString())
-                    });
-                }
+        foreach (DataRow Row in dataTable.Rows)
+{
+    ServerList.Add(new Models.Server
+    {
+        Game = Row["Game"]?.ToString() ?? string.Empty,
+        ServerName = Row["Server"]?.ToString() ?? string.Empty,
+        ServerCapacity = Row["ServerCapacity"] != DBNull.Value ? Convert.ToInt32(Row["ServerCapacity"]) : 0,
+        ServerStatus = Row["ServerStatus"] != DBNull.Value && bool.TryParse(Row["ServerStatus"].ToString(), out bool status) ? status : false,
+        LastUpdate = Row["LastUpdate"] != DBNull.Value ? Convert.ToDateTime(Row["LastUpdate"]) : DateTime.MinValue
+    });
+}
 
                 return ServerList;
             }
