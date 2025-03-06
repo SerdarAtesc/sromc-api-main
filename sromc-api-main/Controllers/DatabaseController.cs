@@ -31,7 +31,9 @@ namespace SROMCapi.Controllers
             SqlConnection Connection = new SqlConnection(ConnectionString);
             try
             {
-                string query = "INSERT into Chars (Password,Token,CharName,Server,PlayerId,LastUpdate) VALUES (@Password,@Token,@CharName,@Server,@PlayerId,@LastUpdate)";
+                string query = "INSERT INTO Chars (Password, Token, CharName, Server, PlayerId, LastUpdate) " +
+                      "VALUES (@Password, @Token, @CharName, @Server, @PlayerId, @LastUpdate);" +
+                      "SELECT SCOPE_IDENTITY();"; 
                 SqlCommand cmd = new SqlCommand(query, Connection);
                 Connection.Open();
                 cmd.Parameters.AddWithValue("@Password", Password);
@@ -1010,17 +1012,17 @@ namespace SROMCapi.Controllers
                 da.Fill(dataTable);
                 Connection.Close();
 
-        foreach (DataRow Row in dataTable.Rows)
-{
-    ServerList.Add(new Models.Server
-    {
-        Game = Row["Game"]?.ToString() ?? string.Empty,
-        ServerName = Row["Server"]?.ToString() ?? string.Empty,
-        ServerCapacity = Row["ServerCapacity"] != DBNull.Value ? Convert.ToInt32(Row["ServerCapacity"]) : 0,
-        ServerStatus = Row["ServerStatus"] != DBNull.Value && bool.TryParse(Row["ServerStatus"].ToString(), out bool status) ? status : false,
-        LastUpdate = Row["LastUpdate"] != DBNull.Value ? Convert.ToDateTime(Row["LastUpdate"]) : DateTime.MinValue
-    });
-}
+                foreach (DataRow Row in dataTable.Rows)
+                {
+                    ServerList.Add(new Models.Server
+                    {
+                        Game = Row["Game"]?.ToString() ?? string.Empty,
+                        ServerName = Row["Server"]?.ToString() ?? string.Empty,
+                        ServerCapacity = Row["ServerCapacity"] != DBNull.Value ? Convert.ToInt32(Row["ServerCapacity"]) : 0,
+                        ServerStatus = Row["ServerStatus"] != DBNull.Value && bool.TryParse(Row["ServerStatus"].ToString(), out bool status) ? status : false,
+                        LastUpdate = Row["LastUpdate"] != DBNull.Value ? Convert.ToDateTime(Row["LastUpdate"]) : DateTime.MinValue
+                    });
+                }
 
                 return ServerList;
             }
@@ -1198,7 +1200,7 @@ namespace SROMCapi.Controllers
                 {
                     return new Models.AccountInfo
                     {
-                        CharId = dataTable.Rows[0]["CharId"].ToString(),
+                        CharId = Convert.ToInt32(dataTable.Rows[0]["CharId"]),
                         CharName = dataTable.Rows[0]["CharName"].ToString(),
                         PlayerId = dataTable.Rows[0]["PlayerId"].ToString(),
                         Server = dataTable.Rows[0]["Server"].ToString(),

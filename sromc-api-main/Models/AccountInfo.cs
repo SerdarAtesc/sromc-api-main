@@ -7,7 +7,7 @@ namespace SROMCapi.Models
 {
     public class AccountInfo
     {
-        public string CharId { get; set; } = "0";
+        public int CharId { get; set; } = 0;
 
         public string Password { get; set; }
 

@@ -33,7 +33,7 @@ namespace SROMCapi.Controllers
             if(CharId >= 1)
             {
                 var Update = DatabaseController.UpdateChar(Password, Token, CharName, Server, CharId);
-                if (Update.CharId != "0")
+                if (Update.CharId != 0)
                 {
                     return new AccountInfo
                     {
@@ -48,11 +48,11 @@ namespace SROMCapi.Controllers
 
             // Create account if doesnt exists
             var Add = DatabaseController.AddChar(Password, Token, CharName, Server, PlayerId);
-            if(Add.CharId != "0")
+            if(Add.CharId != 0)
             {
                 return new AccountInfo
                 {
-                    CharId = Guid.NewGuid().ToString(), // Create new
+                    CharId = Add.CharId, // Create new
                     Token = Add.Token, // Created token
                     CharName = Add.CharName,
                     Server = Add.Server,
@@ -63,5 +63,6 @@ namespace SROMCapi.Controllers
             // Return back if error
             return new AccountInfo { };
         }
+
     }
 }
