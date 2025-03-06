@@ -36,3 +36,4 @@ C:\Users\Serdar\Downloads\sromc-api-main\sromc-api-main\obj\Debug\netcoreapp3.1\
 C:\Users\Serdar\Downloads\sromc-api-main\sromc-api-main\obj\Debug\netcoreapp3.1\SROMCapi.dll
 C:\Users\Serdar\Downloads\sromc-api-main\sromc-api-main\obj\Debug\netcoreapp3.1\SROMCapi.pdb
 C:\Users\Serdar\Downloads\sromc-api-main\sromc-api-main\obj\Debug\netcoreapp3.1\SROMCapi.genruntimeconfig.cache
+C:\Users\Serdar\Downloads\sromc-api-main\sromc-api-main\obj\Debug\netcoreapp3.1\SROMCapi.sourcelink.json

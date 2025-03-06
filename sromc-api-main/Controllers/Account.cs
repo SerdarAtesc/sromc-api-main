@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -51,7 +52,7 @@ namespace SROMCapi.Controllers
             {
                 return new AccountInfo
                 {
-                    CharId = Add.CharId, // Create new
+                    CharId = Guid.NewGuid().ToString(), // Create new
                     Token = Add.Token, // Created token
                     CharName = Add.CharName,
                     Server = Add.Server,
