@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SROMCapi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d66d6db969a5006a4e1783d997d080e8bc87aa07")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+78c2af60179eb1fff1729341bbb83ff234e57376")]
 [assembly: System.Reflection.AssemblyProductAttribute("SROMCapi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SROMCapi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

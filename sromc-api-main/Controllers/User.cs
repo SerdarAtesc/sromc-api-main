@@ -47,7 +47,7 @@ namespace SROMCapi.Controllers
 
             return new UserInfo
             {
-                Id = -1,
+                Id = User.Id,
                 Username = User.Username,
                 Password = User.Password,
                 Token = User.Token

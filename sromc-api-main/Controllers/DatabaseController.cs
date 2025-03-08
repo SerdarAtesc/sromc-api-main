@@ -33,7 +33,7 @@ namespace SROMCapi.Controllers
             {
                 string query = "INSERT INTO Chars (Password, Token, CharName, Server, PlayerId, LastUpdate) " +
                       "VALUES (@Password, @Token, @CharName, @Server, @PlayerId, @LastUpdate);" +
-                      "SELECT SCOPE_IDENTITY();"; 
+                      "SELECT SCOPE_IDENTITY();";
                 SqlCommand cmd = new SqlCommand(query, Connection);
                 Connection.Open();
                 cmd.Parameters.AddWithValue("@Password", Password);
@@ -310,6 +310,7 @@ namespace SROMCapi.Controllers
                     {
                         Id = Convert.ToInt32(dataTable.Rows[0]["Id"].ToString()),
                         Username = dataTable.Rows[0]["Username"].ToString(),
+                        Password = dataTable.Rows[0]["Password"].ToString(),
                         Token = dataTable.Rows[0]["Token"].ToString(),
                     };
                 }
@@ -466,6 +467,7 @@ namespace SROMCapi.Controllers
                     {
                         Id = User.Id,
                         Username = User.Username,
+                        Password = User.Password,
                         Token = User.Token,
                     };
                 }
